@@ -61,7 +61,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const set = (k) => (e) => setForm((p) => ({ ...p, [k]: e.target.value }));
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
 
   const submit = async () => {
     const { name, phone, pickup, delivery, weight, cargo } = form;
@@ -174,14 +173,24 @@ export default function Home() {
       </section>
 
       {/* QUOTE FORM */}
+      <style>{`
+        .form-box { padding: 2.5rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-full { grid-column: 1 / -1; }
+        @media (max-width: 640px) {
+          .form-box { padding: 1.25rem; }
+          .form-grid { grid-template-columns: 1fr; }
+          .form-full { grid-column: 1; }
+        }
+      `}</style>
       <section id="quote" style={{ padding: "90px 5%", background: "#fff" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ fontSize: 13, fontWeight: 600, color: "#3B82C4", letterSpacing: 2, textTransform: "uppercase", marginBottom: ".75rem" }}>Request a Shipment</div>
           <h2 style={{ fontSize: "clamp(1.6rem,3vw,2.2rem)", fontWeight: 700, color: "#0D2B4E", marginBottom: "1rem" }}>Get an Instant Quote</h2>
           <p style={{ fontSize: "1rem", color: "#64748B", maxWidth: 560, lineHeight: 1.7 }}>Fill in your shipment details and our team will reach out with a competitive quote within 24 hours.</p>
 
-          <div style={{ background: "#fff", border: "1px solid #CBD5E1", borderRadius: 12, padding: isMobile ? "1.25rem" : "2.5rem", marginTop: "2.5rem", maxWidth: 780 }}>
-            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 20 }}>
+          <div className="form-box" style={{ background: "#fff", border: "1px solid #CBD5E1", borderRadius: 12, marginTop: "2.5rem", maxWidth: 780 }}>
+            <div className="form-grid">
               {[
                 ["name", "Full Name", "text", "Abebe Kebede"],
                 ["phone", "Phone Number", "tel", "+251 9XX XXX XXX"],
@@ -203,7 +212,7 @@ export default function Home() {
                   {CARGO_TYPES.map((c) => <option key={c}>{c}</option>)}
                 </select>
               </div>
-              <div style={{ gridColumn: isMobile ? "1" : "1/-1", display: "flex", flexDirection: "column", gap: 6 }}>
+              <div className="form-full" style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                 <label style={{ fontSize: 13, fontWeight: 600, color: "#0D2B4E" }}>Additional Notes</label>
                 <textarea placeholder="Any special requirements, project details, or urgent delivery notes…"
                   value={form.notes} onChange={set("notes")} rows={4}
