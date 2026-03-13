@@ -38,6 +38,7 @@ const CARGO_TYPES = [
 const CONTACT_ITEMS = [
   { icon: <Phone size={20} />, label: "Phone", value: "+48 780 517 696" },
   { icon: <Mail size={20} />, label: "Email", value: "fikireyesusb@gmail.com" },
+  { icon: <MapPin size={20} />, label: "Address", value: "Bole Mafi Mall, 6th Floor, Addis Ababa, Ethiopia" },
   { icon: <MapPin size={20} />, label: "Operating Region", value: "Ethiopia — Nationwide Road Freight" },
   { icon: <Clock size={20} />, label: "Business Hours", value: "Mon – Sat, 8:00 AM – 6:00 PM" },
 ];
@@ -201,8 +202,8 @@ export default function Home() {
             <span style={{ color: "#3B82C4" }}>Road Freight</span>{" "}
             You Can Rely On
           </h1>
-          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.72)", maxWidth: 520, lineHeight: 1.7, marginBottom: "2.5rem" }}>
-            FANTAF Trading & Logistics delivers construction materials and heavy cargo to your project sites across Ethiopia — on time, every time.
+          <p style={{ fontSize: "1.1rem", color: "rgba(255,255,255,0.72)", maxWidth: 620, lineHeight: 1.7, marginBottom: "2.5rem" }}>
+            FANTAF Trading & Logistics ensures your project stays on schedule with the dependable delivery of construction materials and heavy cargo across Ethiopia. We specialize in the transportation of heavy machinery, cement, steel, metals, and containers — guaranteeing on-time arrival, every time.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <button onClick={() => scrollTo("quote")}
