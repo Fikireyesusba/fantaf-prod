@@ -45,7 +45,7 @@ const CONTACT_ITEMS = [
 const SOCIAL_LINKS = [
   {
     name: "WhatsApp",
-    url: "https://wa.me/251952974980",
+    url: "https://wa.me/48780517696",
     color: "#25D366",
     icon: (
       <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -55,7 +55,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/fantaflogistics",
+    url: "https://www.instagram.com/fikireyesus_bancha",
     color: "#E1306C",
     icon: (
       <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -65,7 +65,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Facebook",
-    url: "https://facebook.com/fantaflogistics",
+    url: "https://www.facebook.com/share/1CWV2fQR5Z/?mibextid=wwXIfr",
     color: "#1877F2",
     icon: (
       <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
