@@ -1,8 +1,23 @@
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+);
+
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, phone, pickup, delivery, weight, cargo, notes } = body;
+    const { name, phone, pickup, delivery, weight, cargo, notes, user_id } = body;
 
+    // Save to Supabase
+    const { error: dbError } = await supabase.from("quotes").insert([{
+      user_id: user_id || null,
+      name, phone, pickup, delivery, weight, cargo, notes,
+    }]);
+    if (dbError) console.error("DB error:", dbError);
+
+    // Send email via Formspree
     const res = await fetch("https://formspree.io/f/mnjgvowv", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
